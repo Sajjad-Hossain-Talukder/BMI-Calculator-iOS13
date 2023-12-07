@@ -10,6 +10,8 @@ import UIKit
 
 class CalculateViewController: UIViewController {
     
+    var bmiValue = "0.0"
+    
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
@@ -36,7 +38,7 @@ class CalculateViewController: UIViewController {
         print( heightSlider.value ,weightSlider.value )
         
         var bmi = weightSlider.value / ( heightSlider.value * heightSlider.value )
-        
+        bmiValue = String( format: "%.2f" , bmi )
         //print(bmi)
         
         //var secondVC = SecondViewController()
@@ -48,6 +50,13 @@ class CalculateViewController: UIViewController {
         
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            var destinationVC = segue.destination as! ResultViewController
+            destinationVC.bmiValue = bmiValue ;
+        }
     }
 }
 
