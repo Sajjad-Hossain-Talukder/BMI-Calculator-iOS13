@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     
@@ -39,6 +38,12 @@ class ViewController: UIViewController {
         var bmi = weightSlider.value / ( heightSlider.value * heightSlider.value )
         
         print(bmi)
+        
+        var secondVC = SecondViewController()
+        secondVC.bmiValue = String ( format:"%0.2f", bmi )
+        
+        self.present(secondVC, animated: true , completion: nil)
+        
         
         
     }
