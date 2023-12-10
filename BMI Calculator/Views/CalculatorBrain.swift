@@ -9,16 +9,15 @@
 
 struct CalculatorBrain {
     
-    var  bmi : Float?
-
+    var  bmi : BMI?
+    
     mutating func calculateBMI(_ height: Float , _ weight : Float ){
-        bmi = weight / ( height  * height )
+        let bmiValue = weight / ( height  * height )
+        bmi = BMI(value: bmiValue , advice: "Muti ", color: .red )
     }
     
     func getBMI()-> String {
-        return  String(format : "%0.1f", bmi ?? 0.0 )
+        return  String(format : "%0.1f", bmi?.value ?? 0.0 )
     }
-    
-    
-    
+
 }
