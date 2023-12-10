@@ -33,11 +33,13 @@ class CalculateViewController: UIViewController {
     }
     
     @IBAction func calculateButton(_ sender: UIButton) {
+        
         //print( heightSlider.value ,weightSlider.value )
         //print(bmi)
         //var secondVC = SecondViewController()
         //secondVC.bmiValue = String ( format:"%0.2f", bmi )
         //self.present(secondVC, animated: true , completion: nil)
+        
         
         calculartorBrain.calculateBMI(heightSlider.value, weightSlider.value )
         self.performSegue(withIdentifier: "goToResult", sender: self )
